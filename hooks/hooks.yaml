@@ -1,0 +1,17 @@
+
+
+do_thing(name str = "foo")<-:
+  things:
+    - foo
+    - bar
+    - baz
+
+  foo->: select --choices {{things}}
+  another:
+    ->: checkbox
+    choices:
+      - do_experiment_1
+      - do_experiment_2
+    if: foo == 'foo'
+
+  do->: tackle {{item}} --for another
